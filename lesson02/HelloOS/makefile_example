@@ -1,0 +1,8 @@
+CC = gcc
+CFLAGS = -c
+OBJS_FILE = file.c file1.c file2.c file3.c file4.c  # define a macro
+.PHONY: all everything # define two phony targets all and everything
+all: everything  # 'all' depends on 'everything'
+everything: $(OBJS_FILE) # everything depends on macro objs_file 
+%.o: %.c  # wildcast.
+$(CC) $(CFLAGS) -o $@ $<
